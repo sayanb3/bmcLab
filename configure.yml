@@ -8,7 +8,7 @@
     - name: Install Java
       apt: name=default-jdk state=latest update_cache=yes
 
-    - name: Install Maven
+    - name: Install Maven software
       apt: name=maven state=latest update_cache=yes
 
     - debug: msg="Jenkins Docker Slave machine is configured successfully!"
