@@ -1,0 +1,14 @@
+---
+
+- name: Configure Java and Maven in Jenkins Docker Slave
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Java
+      apt: name=default-jdk state=latest update_cache=yes
+
+    - name: Install Maven
+      apt: name=maven state=latest update_cache=yes
+
+    - debug: msg="Jenkins Docker Slave machine is configured successfully!"
