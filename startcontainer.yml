@@ -11,6 +11,10 @@
      #- name: Install docker-py pip
        #shell: "pip install docker-py"
 
+     - name: Stop the devops slave conatiner machine
+       shell: "docker stop $(docker ps -q) && docker rm $(docker ps -aq)"
+       ignore_errors: True
+
      - name: Provision a docker slave container using our docker slave image
        docker_container:
            docker_host: tcp://localhost:4243
