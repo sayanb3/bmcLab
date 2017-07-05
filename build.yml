@@ -2,17 +2,17 @@
 
 - name: Build Maven project in the Docker Slave machine
   hosts: all
-  vars:
-     JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
-     M2_HOME: /usr/share/maven
-     PATH: $JAVA_HOME/bin:$M2_HOME/bin:$PATH
+  #vars:
+     #JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
+     #M2_HOME: /usr/share/maven
+     #PATH: $JAVA_HOME/bin:$M2_HOME/bin:$PATH
   #become: yes
 
   tasks:
     - name: Build Maven project
       shell: "mvn clean package"
       args: 
-         chdir: "/root/hello"
+         chdir: /root/hello
       #env: "{{ environment }}"
 
     #- name: Install Maven software
