@@ -15,6 +15,9 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 RUN mkdir -p /root/.ssh
 COPY authorized_keys /root/.ssh/authorized_keys
 
+RUN mkdir -p /root/hello
+COPY . /root/hello
+
 EXPOSE 22
 EXPOSE 80 
 CMD ["/usr/sbin/sshd", "-D"]
