@@ -1,0 +1,21 @@
+---
+
+- name: This playbook will start a new container out of our custom imgae
+  hosts: localhost
+  #become: yes
+
+  tasks:
+     #- name: Install pip
+       #apt: name=python-pip state=present update_cache=yes
+
+     #- name: Install docker-py pip
+       #shell: "pip install docker-py"
+
+     - name: Provision a docker slave container using our docker slave image
+       docker_container:
+           docker_host: tcp://localhost:4243
+           image: devops/ubuntu
+           name: devops-slave-machine
+           state: started
+           ports:
+             - "2000:22"
